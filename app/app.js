@@ -12,7 +12,7 @@ const db = require('./services/db');
 
 // Create a route for root - /
 app.get("/", function(req, res) {
-    res.send("A test to see everything works!");
+    res.send("Stacy is such a beautiful name!");
 });
 
 // Create a route for testing the db

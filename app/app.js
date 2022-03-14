@@ -1,6 +1,8 @@
 // Import express.js
 const express = require("express");
 
+const { Teacher } = require('./teacher.js')
+
 // Create express app
 var app = express();
 
@@ -27,6 +29,18 @@ const db = require('./services/db');
 app.get("/", function(req, res) {
     res.render("index");
 });
+
+
+// Create a route for testing the db
+app.get("/teacher", function(req, res) {
+    // Assumes a table called test_table exists in your database
+    sql = 'select * from Teacher';
+    db.query(sql).then(results => {
+        console.log(results);
+        res.send(results)
+    });
+});
+
 
 
 // Create a route for testing the db

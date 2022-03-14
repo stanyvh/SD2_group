@@ -1,0 +1,62 @@
+h1 {
+    position: absolute;
+    text-align: right;
+    right: 580px;
+    width: 300px;
+    padding: 10px;
+    font-family: Helvetica;
+}
+
+img {
+    position: absolute;
+    margin-top: 120;
+    margin-left: 100;
+    width: 250;
+    height: 250;
+}
+
+.name {
+    margin-top: 150;
+    position: absolute;
+    margin-left: 400;
+    border-style: solid;
+    border-color: skyblue;
+    background-color: skyblue;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+.skills {
+    margin-top: 225;
+    position: absolute;
+    margin-left: 400;
+    border-style: solid;
+    border-color: skyblue;
+    background-color: skyblue;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+select {
+    border-style: none;
+    background-color: skyblue;
+    font-family: Helvetica;
+}
+
+.book {
+    margin-top: 300;
+    position: absolute;
+    margin-left: 400;
+    border-style: solid;
+    border-color: skyblue;
+    background-color: skyblue;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+body {
+    background-color: rgb(216, 216, 216);
+}

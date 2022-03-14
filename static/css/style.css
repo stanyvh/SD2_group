@@ -56,3 +56,7 @@ select {
     border-radius: 10px;
     font-family: Helvetica;
 }
+
+body {
+    background-color: rgb(216, 216, 216);
+}

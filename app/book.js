@@ -1,0 +1,4 @@
+class Booking {
+    // Booking
+    Booking = [];
+}

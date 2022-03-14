@@ -1,0 +1,148 @@
+/*Create Tables*/
+
+/*Skills Table*/
+CREATE TABLE Skills(Skill_ID int(10) PRIMARY KEY,
+                    SkillName VARCHAR(20),
+                    SkillType VARCHAR(20));
+
+
+/*Teacher*/
+CREATE TABLE Teacher(T_ID INT(10) PRIMARY KEY,
+			FirstName VARCHAR(20),
+			LastName VARCHAR(20));
+
+/*Booking*/
+CREATE TABLE Booking(Book_ID INT(10) PRIMARY KEY,
+	    	     T_ID int(10),
+	    	     DayOfWeek int(10),
+	    	     Slot VARCHAR(10),
+	    	     Duration int(10));
+		     
+
+/*Teaching Table*/
+CREATE TABLE Teaching(T_ID int(10),
+		     Skill_ID int(10));
+
+
+/*Populate Tables*/
+
+
+/*Skills Table*/
+INSERT INTO Skills VALUES(100, "Accounting", "Academic");
+INSERT INTO Skills VALUES(101, "Nursing", "Academic");
+INSERT INTO Skills VALUES(102, "Anthropology", "Academic");
+INSERT INTO Skills VALUES(103, "Biology", "Academic");
+INSERT INTO Skills VALUES(104, "Biomedical Science", "Academic");
+INSERT INTO Skills VALUES(105, "Business Management", "Academic");
+INSERT INTO Skills VALUES(106, "Computer Science", "Academic");
+INSERT INTO Skills VALUES(107, "Writing", "Academic");
+INSERT INTO Skills VALUES(108, "Criminology", "Academic");
+INSERT INTO Skills VALUES(109, "Cyber Security", "Academic");
+INSERT INTO Skills VALUES(110, "Dance", "Academic");
+INSERT INTO Skills VALUES(111, "Digital Media", "Academic");
+INSERT INTO Skills VALUES(112, "Drama", "Academic");
+INSERT INTO Skills VALUES(113, "Economics", "Academic");
+INSERT INTO Skills VALUES(114, "Education", "Academic");
+INSERT INTO Skills VALUES(115, "Literature", "Academic");
+INSERT INTO Skills VALUES(116, "Human Resources", "Academic");
+INSERT INTO Skills VALUES(117, "Journalism", "Academic");
+INSERT INTO Skills VALUES(118, "Marketing", "Academic");
+INSERT INTO Skills VALUES(119, "Nursing", "Academic");
+INSERT INTO Skills VALUES(120, "Photography", "Academic");
+INSERT INTO Skills VALUES(121, "Politics", "Academic");
+INSERT INTO Skills VALUES(122, "Phycology", "Academic");
+INSERT INTO Skills VALUES(123, "Math", "Academic");
+INSERT INTO Skills VALUES(124, "Writing", "Academic");
+INSERT INTO Skills VALUES(125, "Sports", "Academic");
+INSERT INTO Skills VALUES(500, "Gym", "Recreation");
+INSERT INTO Skills VALUES(501, "Piano", "Recreation");
+INSERT INTO Skills VALUES(502, "Violin", "Recreation");
+INSERT INTO Skills VALUES(503, "Yoga", "Recreation");
+INSERT INTO Skills VALUES(504, "Fencing", "Recreation");
+INSERT INTO Skills VALUES(505, "Scuba Diving", "Recreation");
+INSERT INTO Skills VALUES(506, "Swimming", "Recreation");
+INSERT INTO Skills VALUES(507, "Knitting", "Recreation");
+INSERT INTO Skills VALUES(508, "Painting", "Recreation");
+INSERT INTO Skills VALUES(509, "Rowing", "Recreation");
+INSERT INTO Skills VALUES(510, "Rugby", "Recreation");
+INSERT INTO Skills VALUES(511, "Soccer", "Recreation");
+INSERT INTO Skills VALUES(512, "Tennis", "Recreation");
+INSERT INTO Skills VALUES(513, "Basketball", "Recreation");
+INSERT INTO Skills VALUES(514, "Gaming", "Recreation");
+
+/*Teachers Data*/
+
+INSERT INTO Teacher VALUES(10, "Sheldon", "Cooper");
+INSERT INTO Teacher VALUES(11, "Jason", "Statham");
+INSERT INTO Teacher VALUES(12, "Tony", "Stark");
+INSERT INTO Teacher VALUES(13, "Bruce", "Banner");
+INSERT INTO Teacher VALUES(14, "Jack", "Sparrow");
+INSERT INTO Teacher VALUES(15, "Spencer", "Strasmore");
+INSERT INTO Teacher VALUES(16, "Joe", "Smith");
+INSERT INTO Teacher VALUES(17, "Neal", "Caffrey");
+INSERT INTO Teacher VALUES(18, "Josh", "Holloway");
+INSERT INTO Teacher VALUES(19, "Danny", "McCoy");
+
+/*Teaching Table*/
+
+INSERT INTO Teaching VALUES(10, 122);
+INSERT INTO Teaching VALUES(10, 124);
+INSERT INTO Teaching VALUES(11, 112);
+INSERT INTO Teaching VALUES(11, 120);
+INSERT INTO Teaching VALUES(11, 124);
+INSERT INTO Teaching VALUES(11, 502);
+INSERT INTO Teaching VALUES(11, 509);
+INSERT INTO Teaching VALUES(12, 108);
+INSERT INTO Teaching VALUES(12, 123);
+INSERT INTO Teaching VALUES(12, 514);
+INSERT INTO Teaching VALUES(13, 116);
+INSERT INTO Teaching VALUES(14, 121);
+INSERT INTO Teaching VALUES(14, 120);
+INSERT INTO Teaching VALUES(14, 503);
+INSERT INTO Teaching VALUES(14, 513);
+INSERT INTO Teaching VALUES(15, 115);
+INSERT INTO Teaching VALUES(15, 114);
+INSERT INTO Teaching VALUES(16, 123);
+INSERT INTO Teaching VALUES(16, 122);
+INSERT INTO Teaching VALUES(16, 513);
+INSERT INTO Teaching VALUES(16, 509);
+INSERT INTO Teaching VALUES(17, 120);
+INSERT INTO Teaching VALUES(17, 108);
+INSERT INTO Teaching VALUES(17, 107);
+INSERT INTO Teaching VALUES(17, 514);
+INSERT INTO Teaching VALUES(17, 502);
+INSERT INTO Teaching VALUES(18, 117);
+INSERT INTO Teaching VALUES(18, 124);
+INSERT INTO Teaching VALUES(19, 120);
+INSERT INTO Teaching VALUES(19, 125);
+INSERT INTO Teaching VALUES(19, 503);
+INSERT INTO Teaching VALUES(19, 501);
+
+/*Booking Table*/
+
+
+INSERT INTO Booking VALUES(1000, 10, 1, '10:30', 60);
+INSERT INTO Booking VALUES(1001, 10, 3, '15:30', 45);
+INSERT INTO Booking VALUES(1002, 10, 5, '17:00', 60);
+INSERT INTO Booking VALUES(1003, 11, 2, '12:30', 30);
+INSERT INTO Booking VALUES(1004, 11, 3, '18:00', 90);
+INSERT INTO Booking VALUES(1005, 11, 6, '12:00', 60);
+INSERT INTO Booking VALUES(1006, 12, 3, '13:00', 60);
+INSERT INTO Booking VALUES(1007, 12, 4, '10:30', 90);
+INSERT INTO Booking VALUES(1008, 12, 5, '12:30', 60);
+INSERT INTO Booking VALUES(1009, 13, 1, '10:30', 60);
+INSERT INTO Booking VALUES(1010, 13, 4, '17:00', 90);
+INSERT INTO Booking VALUES(1011, 13, 6, '12:30', 30);
+INSERT INTO Booking VALUES(1012, 14, 2, '10:30', 45);
+INSERT INTO Booking VALUES(1013, 14, 3, '11:15', 60);
+INSERT INTO Booking VALUES(1014, 14, 7, '16:30', 90);
+INSERT INTO Booking VALUES(1015, 15, 2, '14:30', 60);
+INSERT INTO Booking VALUES(1016, 15, 4, '12:30', 90);
+INSERT INTO Booking VALUES(1017, 15, 6, '19:00', 90);
+INSERT INTO Booking VALUES(1018, 16, 2, '10:30', 60);
+INSERT INTO Booking VALUES(1019, 17, 5, '19:30', 90);
+INSERT INTO Booking VALUES(1020, 17, 6, '12:30', 60);
+INSERT INTO Booking VALUES(1021, 18, 2, '10:30', 90);
+INSERT INTO Booking VALUES(1022, 19, 3, '11:00', 45);
+INSERT INTO Booking VALUES(1023, 19, 4, '18:30', 60);
+INSERT INTO Booking VALUES(1024, 19, 6, '12:00', 90);

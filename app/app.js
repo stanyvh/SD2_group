@@ -1,6 +1,8 @@
 // Import express.js
 const express = require("express");
 
+const { Teacher } = require('./teacher.js')
+
 // Create express app
 var app = express();
 
@@ -37,6 +39,7 @@ app.get("/skills", function(req, res) {
         res.send(results)
     });
 });
+
 
 // Create a route for testing the db
 app.get("/db_test", function(req, res) {

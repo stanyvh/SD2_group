@@ -3,30 +3,32 @@ class Teacher {
     teachID;
     firstName;
     lastName;
+    skills;
 
     constructor(T_ID, firstName, lastName) {
         this.teachID = teachID;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.skills = [];
     }
 
     getFormattedName() {
         return this.firstName + ' ' + this.lastName;
     }
 
-    get firstName() {
+    getfirstName() {
         return this.#firstName;
     }
 
-    get lastName() {
+    getlastName() {
         return this.#lastName
     }
 
-    set firstName(firstName) {
+    setfirstName(firstName) {
         this.#firstName = firstName;
     }
 
-    set lastName(lastName) {
+    setlastName(lastName) {
         this.#lastName = lastName;
     }
 

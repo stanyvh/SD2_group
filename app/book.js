@@ -1,4 +1,0 @@
-class Booking {
-    // Booking
-    Booking = [];
-}

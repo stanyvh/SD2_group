@@ -6,6 +6,15 @@ const { Teacher } = require('./teacher.js')
 // Create express app
 var app = express();
 
+app.use(express.static("static"));
+
+// Make sure we get the POST parameters
+app.use(express.urlencoded({ extended: true }))
+
+// Create a post route to handle the form submission of the option list
+
+app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
+
 // Use the Pug templating engine
 app.set('view engine', 'pug');
 app.set('views', './app/views');
@@ -20,6 +29,7 @@ const db = require('./services/db');
 app.get("/", function(req, res) {
     res.render("index");
 });
+
 
 // Create a route for testing the db
 app.get("/teacher", function(req, res) {

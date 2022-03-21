@@ -13,6 +13,17 @@ img {
     margin-left: 100;
     width: 250;
     height: 250;
+    border-block-end-style: initial;
+    border-radius: 25px;
+    border: 2px solid #ad4d36;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px 50px;
+    background: #c27536;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
 }
 
 .name {
@@ -20,8 +31,8 @@ img {
     position: absolute;
     margin-left: 400;
     border-style: solid;
-    border-color: skyblue;
-    background-color: skyblue;
+    border-color: #c27536;
+    background-color: #c27536;
     border-width: 10px;
     border-radius: 10px;
     font-family: Helvetica;
@@ -32,16 +43,17 @@ img {
     position: absolute;
     margin-left: 400;
     border-style: solid;
-    border-color: skyblue;
-    background-color: skyblue;
+    border-color: #c27536;
+    background-color: #c27536;
     border-width: 10px;
     border-radius: 10px;
     font-family: Helvetica;
 }
 
 select {
+    text-align: center;
     border-style: none;
-    background-color: skyblue;
+    background-color: #c27536;
     font-family: Helvetica;
 }
 
@@ -50,13 +62,13 @@ select {
     position: absolute;
     margin-left: 400;
     border-style: solid;
-    border-color: skyblue;
-    background-color: skyblue;
+    border-color: #d88f53;
+    background-color: #d88f53;
     border-width: 10px;
     border-radius: 10px;
     font-family: Helvetica;
 }
 
 body {
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(209, 207, 207);
 }

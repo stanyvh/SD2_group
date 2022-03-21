@@ -17,6 +17,9 @@ const db = require('./services/db');
 //Get the models
 const { Teacher } = require("./models/teacher");
 
+// Get the programmes dropdown menu
+const getskills = require("./models/getskills");
+
 //***********************************************************************************
 
 // Create a route for root - /
@@ -42,7 +45,10 @@ app.get("/single-teacher/:id", async function(req, res) {
     var teacher = new Teacher(tId);
     await teacher.getTeacherName();
     await teacher.getTeacherSkills();
-    res.send(teacher);
+    await teacher.getTeacherBookings();
+    resultSkills = await getskills.getAllSkills();
+    console.log(resultSkills);
+    res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});
 });
 
 

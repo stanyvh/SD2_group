@@ -1,0 +1,11 @@
+extends layout
+block content
+    h1 Teacher Profile Page for: #{teacher.Name}
+    p The ID for the teacher is: #{teacher.T_ID}
+    h2 Skills
+    table(border=1)
+            for skills in teacher.skills
+                tr  
+                    td #{skills.skillName}
+                    td 
+                        a(href='/skill-type/' + skills.skillName) #{skills.skillType}

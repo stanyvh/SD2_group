@@ -1,5 +1,6 @@
 const db = require('../services/db');
 const { Skills } = require('./skills');
+const { Booking } = require('./booking');
 
 class Teacher {
     // Attributes
@@ -35,6 +36,15 @@ class Teacher {
     }
 
     async getTeacherBookings() {
+        var sql = "SELECT Booking.Book_ID, Booking.DayOfWeek, Booking.Slot, Booking.Duration \
+        FROM Teacher \
+        JOIN Booking ON Booking.T_ID = Teacher.T_ID \
+        WHERE Teacher.T_ID = ?;"
+        const results = await db.query(sql, [this.T_ID]);
+        console.log(results);
+        for (var row of results) {
+            this.booking.push(new Booking(row.DayOfWeek, row.Slot, row.Duration));
+        }
 
     }
 

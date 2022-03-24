@@ -5,6 +5,9 @@ var app = express();
 // Add static files location
 app.use(express.static("static"));
 
+// Add the luxon date formatting library
+const { DateTime } = require("luxon");
+
 // Use the Pug templating engine
 app.set('view engine', 'pug');
 app.set('views', './app/views');

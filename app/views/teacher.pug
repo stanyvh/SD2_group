@@ -4,8 +4,27 @@ block content
     p The ID for the teacher is: #{teacher.T_ID}
     h2 Skills
     table(border=1)
+        tr
+            th Skill Name
+            th Skill Type
+        tr 
             for skills in teacher.skills
                 tr  
                     td #{skills.skillName}
                     td 
                         a(href='/skill-type/' + skills.skillName) #{skills.skillType}
+    
+    h2 Booking
+    table(border=1)
+        tr
+            th Day of Week
+            th Slot
+            th Duration
+        tr 
+        for booking in teacher.booking
+            tr 
+                td #{booking.DayOfWeek}
+                td
+                    a(href='/booking-time/' + booking.DayOfWeek) #{booking.Slot} 
+                td
+                    a(href='/booking-duration/' + booking.DayOfWeek) #{booking.Duration}

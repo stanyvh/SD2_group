@@ -1,0 +1,20 @@
+extends layout
+block content
+    // - jQuery plus the datepicker function are probably better placed in the layout template but they will work here
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+    link(rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css")
+    script.
+        $(function(){
+            $("#datepicker").datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    // - Date picker form including submit
+    form(action='/set-date', method='POST')
+        input(type='text' id='datepicker' name='date')
+        input(type='submit' value='Submit')
+    ul
+    - // Now we loop through the dates and display them
+    for date in dates
+        li #{date}

@@ -1,9 +1,22 @@
 h1 {
+    white-space: nowrap;
     position: absolute;
     text-align: right;
-    right: 580px;
+    right: 750px;
     width: 300px;
     padding: 10px;
+    font-family: Helvetica;
+}
+
+p {
+    position: absolute;
+    margin-top: 150;
+    margin-left: 400;
+    border-style: solid;
+    border-color: #c27536;
+    background-color: #c27536;
+    border-width: 10px;
+    border-radius: 10px;
     font-family: Helvetica;
 }
 
@@ -38,7 +51,7 @@ img {
     font-family: Helvetica;
 }
 
-.skills {
+h2 {
     margin-top: 225;
     position: absolute;
     margin-left: 400;
@@ -57,13 +70,13 @@ select {
     font-family: Helvetica;
 }
 
-.book {
-    margin-top: 300;
+h3 {
+    margin-top: 380;
     position: absolute;
     margin-left: 400;
     border-style: solid;
-    border-color: #d88f53;
-    background-color: #d88f53;
+    border-color: #c27536;
+    background-color: #c27536;
     border-width: 10px;
     border-radius: 10px;
     font-family: Helvetica;

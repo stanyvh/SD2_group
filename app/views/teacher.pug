@@ -1,30 +1,35 @@
 extends layout
 block content
+    head 
+    title= "Profile Page"
+
+    body 
     h1 Teacher Profile Page for: #{teacher.Name}
+
+    img(scr='/static/images/shelly-coop.png' alt='shelly-coop' width='200px' height='360px')
+
     p The ID for the teacher is: #{teacher.T_ID}
+
     h2 Skills
-    table(border=1)
-        tr
-            th Skill Name
-            th Skill Type
-        tr 
-            for skills in teacher.skills
-                tr  
-                    td #{skills.skillName}
-                    td 
-                        a(href='/skill-type/' + skills.skillName) #{skills.skillType}
-    
-    h2 Booking
-    table(border=1)
-        tr
-            th Day of Week
-            th Slot
-            th Duration
-        tr 
-        for booking in teacher.booking
+        table(border=1)
             tr 
-                td #{booking.DayOfWeek}
-                td
-                    a(href='/booking-time/' + booking.DayOfWeek) #{booking.Slot} 
-                td
-                    a(href='/booking-duration/' + booking.DayOfWeek) #{booking.Duration}
+                th Skill Name 
+                th Skill Type 
+            tr 
+                for skills in teacher.skills  
+                    tr 
+                        td #{skills.skillName} 
+                        td #{skills.skillType} 
+
+    h3 Booking
+        table(border=1)
+            tr
+                th Day of Week
+                th Slot
+                th Duration
+            tr 
+            for booking in teacher.booking
+                tr 
+                    td #{booking.DayOfWeek}
+                    td #{booking.Slot}
+                    td #{booking.Duration}

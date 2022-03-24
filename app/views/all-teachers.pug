@@ -2,10 +2,15 @@ extends layout
 block content
     - console.log(data)
     .main-content
-    h1 All Teachers
-    table(border=1)
-        for item in data
-            tr
-                td #{item.T_ID}
-                td
-                    a(href='/single-teacher/' + item.T_ID) #{item.Name}
+    div.list All Teachers
+    div.All-Teachers
+        table(border=1)
+            tr 
+                th Teacher ID 
+                th Teacher Name 
+            tr 
+                for item in data
+                    tr
+                        td #{item.T_ID}
+                        td
+                            a(href='/single-teacher/' + item.T_ID) #{item.Name}

@@ -1,3 +1,26 @@
+.list {
+    white-space: nowrap;
+    position: absolute;
+    right: 800px;
+    width: 300px;
+    padding: 10px;
+    font-family: Helvetica;
+    font-size: xxx-large;
+    font-weight: 900;
+    text-align: center;
+}
+
+.All-Teachers {
+    margin-left: 550;
+    margin-top: 200;
+    right: 870px;
+    position: absolute;
+    font-size: xxx-large;
+    font-weight: 900;
+    font-family: Helvetica;
+    text-align: center;
+}
+
 h1 {
     white-space: nowrap;
     position: absolute;

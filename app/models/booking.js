@@ -15,7 +15,7 @@ class Booking {
     async getBooking() {
         var sql = "SELECT * from Booking where Book_ID = ?"
         const results = await db.query(sql, [this.id]);
-        this.DayOfWeek = results[0].DayOfWeek;
+        this.DayOfWeek = results[0].DayOfWeek
         this.Slot = results[0].Slot;
         this.Duration = results[0].Duration;
     }

@@ -5,8 +5,6 @@ var app = express();
 // Add static files location
 app.use(express.static("static"));
 
-// Add the luxon date formatting library
-const { DateTime } = require("luxon");
 
 // Use the Pug templating engine
 app.set('view engine', 'pug');
@@ -50,7 +48,6 @@ app.get("/single-teacher/:id", async function(req, res) {
     await teacher.getTeacherSkills();
     await teacher.getTeacherBookings();
     resultSkills = await getskills.getAllSkills();
-    console.log(resultSkills);
     res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});
 });
 

@@ -11,20 +11,20 @@ block content
             for skills in teacher.skills
                 tr  
                     td #{skills.skillName}
-                    td 
-                        a(href='/skill-type/' + skills.skillName) #{skills.skillType}
+                    td #{skills.skillType}
     
     h2 Booking
     table(border=1)
         tr
-            th Day of Week
+            th Day Of Week
             th Slot
             th Duration
-        tr 
+        tr
         for booking in teacher.booking
             tr 
                 td #{booking.DayOfWeek}
-                td
-                    a(href='/booking-time/' + booking.DayOfWeek) #{booking.Slot} 
-                td
-                    a(href='/booking-duration/' + booking.DayOfWeek) #{booking.Duration}
+                td #{booking.Slot}
+                td #{booking.Duration}
+
+                
+                

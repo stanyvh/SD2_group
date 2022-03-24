@@ -15,7 +15,6 @@ class Skills {
     async getSkillName() {
         var sql = "SELECT * from Skills where Skill_ID = ?"
         const results = await db.query(sql, [this.id]);
-        console.log(results);
         this.skillName = results[0].SkillName;
         this.skillType = results[0].SkillType;
     }

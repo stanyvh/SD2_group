@@ -5,6 +5,10 @@ var app = express();
 // Add static files location
 app.use(express.static("static"));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 127a76bd17c8839c1f5495eabce3019b6c652ffa
 // Use the Pug templating engine
 app.set('view engine', 'pug');
 app.set('views', './app/views');
@@ -47,7 +51,6 @@ app.get("/single-teacher/:id", async function(req, res) {
     await teacher.getTeacherSkills();
     await teacher.getTeacherBookings();
     resultSkills = await getskills.getAllSkills();
-    console.log(resultSkills);
     res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});
 });
 

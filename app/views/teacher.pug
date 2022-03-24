@@ -11,6 +11,7 @@ block content
     p The ID for the teacher is: #{teacher.T_ID}
 
     h2 Skills
+<<<<<<< HEAD
         table(border=1)
             tr 
                 th Skill Name 
@@ -33,3 +34,30 @@ block content
                     td #{booking.DayOfWeek}
                     td #{booking.Slot}
                     td #{booking.Duration}
+=======
+    table(border=1)
+        tr
+            th Skill Name
+            th Skill Type
+        tr 
+            for skills in teacher.skills
+                tr  
+                    td #{skills.skillName}
+                    td #{skills.skillType}
+    
+    h2 Booking
+    table(border=1)
+        tr
+            th Day Of Week
+            th Slot
+            th Duration
+        tr
+        for booking in teacher.booking
+            tr 
+                td #{booking.DayOfWeek}
+                td #{booking.Slot}
+                td #{booking.Duration}
+
+                
+                
+>>>>>>> 127a76bd17c8839c1f5495eabce3019b6c652ffa

@@ -8,20 +8,19 @@ CREATE TABLE Skills(Skill_ID int(10) PRIMARY KEY,
 
 /*Teacher*/
 CREATE TABLE Teacher(T_ID INT(10) PRIMARY KEY,
-			FirstName VARCHAR(20),
-			LastName VARCHAR(20));
+Name VARCHAR(20));
 
 /*Booking*/
 CREATE TABLE Booking(Book_ID INT(10) PRIMARY KEY,
-	    	     T_ID int(10),
-	    	     DayOfWeek int(10),
-	    	     Slot VARCHAR(10),
-	    	     Duration int(10));
-		     
+        T_ID int(10),
+        DayOfWeek int(10),
+        Slot VARCHAR(10),
+        Duration int(10));
+    
 
 /*Teaching Table*/
 CREATE TABLE Teaching(T_ID int(10),
-		     Skill_ID int(10));
+    Skill_ID int(10));
 
 
 /*Populate Tables*/
@@ -72,16 +71,16 @@ INSERT INTO Skills VALUES(514, "Gaming", "Recreation");
 
 /*Teachers Data*/
 
-INSERT INTO Teacher VALUES(10, "Sheldon", "Cooper");
-INSERT INTO Teacher VALUES(11, "Jason", "Statham");
-INSERT INTO Teacher VALUES(12, "Tony", "Stark");
-INSERT INTO Teacher VALUES(13, "Bruce", "Banner");
-INSERT INTO Teacher VALUES(14, "Jack", "Sparrow");
-INSERT INTO Teacher VALUES(15, "Spencer", "Strasmore");
-INSERT INTO Teacher VALUES(16, "Joe", "Smith");
-INSERT INTO Teacher VALUES(17, "Neal", "Caffrey");
-INSERT INTO Teacher VALUES(18, "Josh", "Holloway");
-INSERT INTO Teacher VALUES(19, "Danny", "McCoy");
+INSERT INTO Teacher VALUES(10, "Sheldon Cooper");
+INSERT INTO Teacher VALUES(11, "Jason Statham");
+INSERT INTO Teacher VALUES(12, "Tony Stark");
+INSERT INTO Teacher VALUES(13, "Bruce Banner");
+INSERT INTO Teacher VALUES(14, "Jack Sparrow");
+INSERT INTO Teacher VALUES(15, "Spencer Strasmore");
+INSERT INTO Teacher VALUES(16, "Joe Smith");
+INSERT INTO Teacher VALUES(17, "Neal Caffrey");
+INSERT INTO Teacher VALUES(18, "Josh Holloway");
+INSERT INTO Teacher VALUES(19, "Danny McCoy");
 
 /*Teaching Table*/
 
@@ -121,28 +120,28 @@ INSERT INTO Teaching VALUES(19, 501);
 /*Booking Table*/
 
 
-INSERT INTO Booking VALUES(1000, 10, 1, '10:30', 60);
-INSERT INTO Booking VALUES(1001, 10, 3, '15:30', 45);
-INSERT INTO Booking VALUES(1002, 10, 5, '17:00', 60);
-INSERT INTO Booking VALUES(1003, 11, 2, '12:30', 30);
-INSERT INTO Booking VALUES(1004, 11, 3, '18:00', 90);
-INSERT INTO Booking VALUES(1005, 11, 6, '12:00', 60);
-INSERT INTO Booking VALUES(1006, 12, 3, '13:00', 60);
-INSERT INTO Booking VALUES(1007, 12, 4, '10:30', 90);
-INSERT INTO Booking VALUES(1008, 12, 5, '12:30', 60);
-INSERT INTO Booking VALUES(1009, 13, 1, '10:30', 60);
-INSERT INTO Booking VALUES(1010, 13, 4, '17:00', 90);
-INSERT INTO Booking VALUES(1011, 13, 6, '12:30', 30);
-INSERT INTO Booking VALUES(1012, 14, 2, '10:30', 45);
-INSERT INTO Booking VALUES(1013, 14, 3, '11:15', 60);
-INSERT INTO Booking VALUES(1014, 14, 7, '16:30', 90);
-INSERT INTO Booking VALUES(1015, 15, 2, '14:30', 60);
-INSERT INTO Booking VALUES(1016, 15, 4, '12:30', 90);
-INSERT INTO Booking VALUES(1017, 15, 6, '19:00', 90);
-INSERT INTO Booking VALUES(1018, 16, 2, '10:30', 60);
-INSERT INTO Booking VALUES(1019, 17, 5, '19:30', 90);
-INSERT INTO Booking VALUES(1020, 17, 6, '12:30', 60);
-INSERT INTO Booking VALUES(1021, 18, 2, '10:30', 90);
-INSERT INTO Booking VALUES(1022, 19, 3, '11:00', 45);
-INSERT INTO Booking VALUES(1023, 19, 4, '18:30', 60);
-INSERT INTO Booking VALUES(1024, 19, 6, '12:00', 90);
+INSERT INTO Booking VALUES(1000, 10, "Sunday", '10:30', 60);
+INSERT INTO Booking VALUES(1001, 10, "Tuesday", '15:30', 45);
+INSERT INTO Booking VALUES(1002, 10, "Thursday", '17:00', 60);
+INSERT INTO Booking VALUES(1003, 11, "Monday", '12:30', 30);
+INSERT INTO Booking VALUES(1004, 11, "Tuesday", '18:00', 90);
+INSERT INTO Booking VALUES(1005, 11, "Friday", '12:00', 60);
+INSERT INTO Booking VALUES(1006, 12, "Wednesday", '13:00', 60);
+INSERT INTO Booking VALUES(1007, 12, "Tuesday", '10:30', 90);
+INSERT INTO Booking VALUES(1008, 12, "Thursday", '12:30', 60);
+INSERT INTO Booking VALUES(1009, 13, "Sunday", '10:30', 60);
+INSERT INTO Booking VALUES(1010, 13, "Thursday", '17:00', 90);
+INSERT INTO Booking VALUES(1011, 13, "Friday", '12:30', 30);
+INSERT INTO Booking VALUES(1012, 14, "Monday", '10:30', 45);
+INSERT INTO Booking VALUES(1013, 14, "Tuesday", '11:15', 60);
+INSERT INTO Booking VALUES(1014, 14, "Saturday", '16:30', 90);
+INSERT INTO Booking VALUES(1015, 15, "Monday", '14:30', 60);
+INSERT INTO Booking VALUES(1016, 15, "Wednesday", '12:30', 90);
+INSERT INTO Booking VALUES(1017, 15, "Friday", '19:00', 90);
+INSERT INTO Booking VALUES(1018, 16, "Monday", '10:30', 60);
+INSERT INTO Booking VALUES(1019, 17, "Thursday", '19:30', 90);
+INSERT INTO Booking VALUES(1020, 17, "Friday", '12:30', 60);
+INSERT INTO Booking VALUES(1021, 18, "Monday", '10:30', 90);
+INSERT INTO Booking VALUES(1022, 19, "Wednesday", '11:00', 45);
+INSERT INTO Booking VALUES(1023, 19, "Thursday", '18:30', 60);
+INSERT INTO Booking VALUES(1024, 19, "Friday", '12:00', 90);

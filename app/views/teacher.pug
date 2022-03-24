@@ -6,58 +6,28 @@ block content
     body 
     h1 Teacher Profile Page for: #{teacher.Name}
 
-    img(scr='/static/images/shelly-coop.png' alt='shelly-coop' width='200px' height='360px')
+    img(scr='/static/images/profile-pic-temp.png' width='200px' height='360px')
 
     p The ID for the teacher is: #{teacher.T_ID}
 
     h2 Skills
-<<<<<<< HEAD
-        table(border=1)
-            tr 
-                th Skill Name 
-                th Skill Type 
-            tr 
-                for skills in teacher.skills  
+         select
+            option(value= 'Heading')
+                table  
                     tr 
-                        td #{skills.skillName} 
-                        td #{skills.skillType} 
-
+                        th Skill Name | 
+                        th Skill Type 
+                    tr 
+                for skills in teacher.skills
+                    option(value= 'SkillDetails') #{skills.skillName} | #{skills.skillType}
     h3 Booking
-        table(border=1)
-            tr
-                th Day of Week
-                th Slot
-                th Duration
-            tr 
-            for booking in teacher.booking
-                tr 
-                    td #{booking.DayOfWeek}
-                    td #{booking.Slot}
-                    td #{booking.Duration}
-=======
-    table(border=1)
-        tr
-            th Skill Name
-            th Skill Type
-        tr 
-            for skills in teacher.skills
-                tr  
-                    td #{skills.skillName}
-                    td #{skills.skillType}
-    
-    h2 Booking
-    table(border=1)
-        tr
-            th Day Of Week
-            th Slot
-            th Duration
-        tr
-        for booking in teacher.booking
-            tr 
-                td #{booking.DayOfWeek}
-                td #{booking.Slot}
-                td #{booking.Duration}
-
-                
-                
->>>>>>> 127a76bd17c8839c1f5495eabce3019b6c652ffa
+        select
+            option(value= 'Heading')
+                table
+                    tr
+                        th Day of Week | 
+                        th Slot | 
+                        th Duration 
+                    tr 
+                for booking in teacher.booking
+                    option(value= 'BookingDetails') #{booking.DayOfWeek} | #{booking.Slot} | #{booking.Duration}

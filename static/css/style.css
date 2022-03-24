@@ -21,12 +21,11 @@ p {
 }
 
 img {
-    position: absolute;
-    margin-top: 120;
     margin-left: 100;
+    margin-top: 130;
+    position: absolute;
     width: 250;
     height: 250;
-    border-block-end-style: initial;
     border-radius: 25px;
     border: 2px solid #ad4d36;
     padding: 20px;
@@ -71,7 +70,7 @@ select {
 }
 
 h3 {
-    margin-top: 380;
+    margin-top: 310;
     position: absolute;
     margin-left: 400;
     border-style: solid;

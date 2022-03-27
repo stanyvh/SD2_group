@@ -6,9 +6,9 @@ block content
     body 
     h1 Teacher Profile Page for: #{teacher.Name}
 
-    img(scr='/static/images/profile-pic-temp.png' width='200px' height='360px')
-
     p The ID for the teacher is: #{teacher.T_ID}
+
+    img(scr='/static/images/profile-pic-temp.png' width='200px' height='360px')
 
     h2 Skills
          select
@@ -27,7 +27,7 @@ block content
                     tr
                         th Day of Week | 
                         th Slot | 
-                        th Duration 
+                        th Duration (Min)
                     tr 
                 for booking in teacher.booking
                     option(value= 'BookingDetails') #{booking.DayOfWeek} | #{booking.Slot} | #{booking.Duration}

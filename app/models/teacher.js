@@ -6,6 +6,7 @@ class Teacher {
     // Attributes
     T_ID;
     Name;
+    Image;
     skills = [];
     booking = [];
 
@@ -21,6 +22,7 @@ class Teacher {
             this.Name = results[0].Name;
         }
     }
+
 
     //Get the skills for this teacher
     async getTeacherSkills() {

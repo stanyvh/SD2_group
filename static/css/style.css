@@ -1,3 +1,11 @@
+.pic {
+    margin-left: 100;
+    margin-top: 130;
+    position: absolute;
+    width: 250;
+    height: 250;
+}
+
 .list {
     white-space: nowrap;
     position: absolute;
@@ -11,14 +19,14 @@
 }
 
 .All-Teachers {
-    margin-left: 550;
-    margin-top: 200;
-    right: 870px;
+    margin-left: 100;
+    margin-top: -200;
     position: absolute;
     font-size: xxx-large;
     font-weight: 900;
     font-family: Helvetica;
     text-align: center;
+    padding: 350px;
 }
 
 h1 {
@@ -47,13 +55,7 @@ img {
     margin-left: 100;
     margin-top: 130;
     position: absolute;
-    width: 250;
-    height: 250;
-    border-radius: 25px;
     border: 2px solid #ad4d36;
-    padding: 20px;
-    width: 200px;
-    height: 200px;
     border-radius: 15px 50px;
     background: #c27536;
     padding: 20px;
@@ -105,5 +107,7 @@ h3 {
 }
 
 body {
-    background-color: rgb(209, 207, 207);
+    background-image: url("https://media.istockphoto.com/photos/business-and-education-background-picture-id671101136?k=20&m=671101136&s=170667a&w=0&h=IRW440E5O4UWMO0wRHdkTaNgdO6DzD_VnEqzJ-XAl0M=");
+    background-repeat: no-repeat;
+    background-size: 1700px 900px;
 }

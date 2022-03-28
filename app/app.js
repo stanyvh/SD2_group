@@ -25,7 +25,7 @@ const getskills = require("./models/getskills");
 // Create a route for root - /
 app.get("/", function(req, res) {
     res.render("index",
-        {'title':'Profile Page', 'heading': 'heading', 'data':link_learn});
+        {'title':'Profile Page', 'heading': 'heading'});
 });
 
 

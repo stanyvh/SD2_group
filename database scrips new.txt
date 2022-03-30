@@ -145,3 +145,48 @@ INSERT INTO Booking VALUES(1021, 18, "Monday", '10:30', 90);
 INSERT INTO Booking VALUES(1022, 19, "Wednesday", '11:00', 45);
 INSERT INTO Booking VALUES(1023, 19, "Thursday", '18:30', 60);
 INSERT INTO Booking VALUES(1024, 19, "Friday", '12:00', 90);
+
+/* Users Table */
+
+CREATE TABLE `Users` (
+  `id` int NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+);
+
+
+/* Indexes for table `Users` */
+
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`id`);
+
+
+/* AUTO_INCREMENT for table `Users` */
+
+ALTER TABLE `Users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+
+/* To test it */
+
+INSERT INTO `Users` (`id`, `email`, `password`) VALUES
+(10, 'sheldon@cooper.com', '');
+
+/* REGISTER/LOGIN DETAILS */
+SHELDON - sheldon@cooper.com / password
+
+
+/*TROUBLESHOOTING*/
+/* DON'T FORGET TO INSTALL THE LIBRARIES */
+
+npm install express-session
+npm install bcryptjs
+
+
+/* IF THAT DOESN'T WORK */
+
+npm install node-gyp -g
+npm install bcryptjs -g
+
+npm install bcryptjs --save

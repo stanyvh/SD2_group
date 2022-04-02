@@ -22,9 +22,24 @@ CREATE TABLE Booking(Book_ID INT(10) PRIMARY KEY,
 CREATE TABLE Teaching(T_ID int(10),
     Skill_ID int(10));
 
+/*Image Table*/
+CREATE TABLE image(T_ID int(10),
+    image_path VARCHAR(1024));
+
 
 /*Populate Tables*/
 
+/*Image Table*/
+INSERT INTO image VALUES(10, "https://pbs.twimg.com/profile_images/767081941858390016/weLyNLTn_400x400.jpg");
+INSERT INTO image VALUES(11, "https://www.themoviedb.org/t/p/w235_and_h235_face/lldeQ91GwIVff43JBrpdbAAeYWj.jpg");
+INSERT INTO image VALUES(12, "https://i.pinimg.com/736x/db/38/29/db382916e20ffe546ff6e5ae6a1b0de0.jpg");
+INSERT INTO image VALUES(13, "https://64.media.tumblr.com/avatar_8f20ba03a12e_128.pnj");
+INSERT INTO image VALUES(14, "https://pm1.narvii.com/6144/765446e43d14c28cf4415b67bb78e265cf930e90_128.jpg");
+INSERT INTO image VALUES(15, "https://cachedimages.podchaser.com/256x256/aHR0cHM6Ly9jcmVhdG9yLWltYWdlcy5wb2RjaGFzZXIuY29tLzg2YzE0OGVmYjk1ZjAwY2Q4NjVhZmQyZjY0N2YxZGUwLnBuZw%3D%3D/aHR0cHM6Ly93d3cucG9kY2hhc2VyLmNvbS9pbWFnZXMvbWlzc2luZy1pbWFnZS5wbmc%3D");
+INSERT INTO image VALUES(16, "https://pm1.narvii.com/6310/4f120dcf3b29b40eddd36ab271f712e4886ac26d_128.jpg");
+INSERT INTO image VALUES(17, "https://pm1.narvii.com/6452/fdbd098905e0d6116428e95a22e57663881d85c7_128.jpg");
+INSERT INTO image VALUES(18, "https://d26oc3sg82pgk3.cloudfront.net/files/media/edit/image/21092/square_thumb%402x.jpg");
+INSERT INTO image VALUES(19, "https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco,dpr_1/acffkdvesrlnep3qkqlr");
 
 /*Skills Table*/
 INSERT INTO Skills VALUES(100, "Accounting", "Academic");
@@ -49,10 +64,10 @@ INSERT INTO Skills VALUES(118, "Marketing", "Academic");
 INSERT INTO Skills VALUES(119, "Nursing", "Academic");
 INSERT INTO Skills VALUES(120, "Photography", "Academic");
 INSERT INTO Skills VALUES(121, "Politics", "Academic");
-INSERT INTO Skills VALUES(122, "Phycology", "Academic");
+INSERT INTO Skills VALUES(122, "Psychology", "Academic");
 INSERT INTO Skills VALUES(123, "Math", "Academic");
 INSERT INTO Skills VALUES(124, "Writing", "Academic");
-INSERT INTO Skills VALUES(125, "Sports", "Academic");
+INSERT INTO Skills VALUES(125, "Statistics", "Academic");
 INSERT INTO Skills VALUES(500, "Gym", "Recreation");
 INSERT INTO Skills VALUES(501, "Piano", "Recreation");
 INSERT INTO Skills VALUES(502, "Violin", "Recreation");
@@ -64,7 +79,7 @@ INSERT INTO Skills VALUES(507, "Knitting", "Recreation");
 INSERT INTO Skills VALUES(508, "Painting", "Recreation");
 INSERT INTO Skills VALUES(509, "Rowing", "Recreation");
 INSERT INTO Skills VALUES(510, "Rugby", "Recreation");
-INSERT INTO Skills VALUES(511, "Soccer", "Recreation");
+INSERT INTO Skills VALUES(511, "Football", "Recreation");
 INSERT INTO Skills VALUES(512, "Tennis", "Recreation");
 INSERT INTO Skills VALUES(513, "Basketball", "Recreation");
 INSERT INTO Skills VALUES(514, "Gaming", "Recreation");
@@ -76,11 +91,11 @@ INSERT INTO Teacher VALUES(11, "Jason Statham");
 INSERT INTO Teacher VALUES(12, "Tony Stark");
 INSERT INTO Teacher VALUES(13, "Bruce Banner");
 INSERT INTO Teacher VALUES(14, "Jack Sparrow");
-INSERT INTO Teacher VALUES(15, "Spencer Strasmore");
-INSERT INTO Teacher VALUES(16, "Joe Smith");
+INSERT INTO Teacher VALUES(15, "Dwayne Johnson");
+INSERT INTO Teacher VALUES(16, "Scarlett Johansson");
 INSERT INTO Teacher VALUES(17, "Neal Caffrey");
-INSERT INTO Teacher VALUES(18, "Josh Holloway");
-INSERT INTO Teacher VALUES(19, "Danny McCoy");
+INSERT INTO Teacher VALUES(18, "Zoe Saldaña");
+INSERT INTO Teacher VALUES(19, "Natalie Portman");
 
 /*Teaching Table*/
 
@@ -118,7 +133,6 @@ INSERT INTO Teaching VALUES(19, 503);
 INSERT INTO Teaching VALUES(19, 501);
 
 /*Booking Table*/
-
 
 INSERT INTO Booking VALUES(1000, 10, "Sunday", '10:30', 60);
 INSERT INTO Booking VALUES(1001, 10, "Tuesday", '15:30', 45);

@@ -1,0 +1,36 @@
+extends layout
+block content
+    h1 Welcome to Link-&-Learn!
+    div.p1 Connecting university students together for an engaging educational experience.
+    div.p2 If you are a University Student Learner (USL) looking for a tutor, please select from the following options:
+    div.p2
+        a.btn(href='/all-teachers') View All Teachers
+        div.dropdown
+            div.dropbtn Academic Skills
+                div.dropdown-content
+                    a.dropdown-content(href='/maths') Maths
+                    a.dropdown-content(href='#') Education
+                    a.dropdown-content(href='#') Writing
+                    a.dropdown-content(href='#') Drama
+                    a.dropdown-content(href='#') Photography
+                    a.dropdown-content(href='#') Criminology
+                    a.dropdown-content(href='#') Human Resources
+                    a.dropdown-content(href='#') Politics
+                    a.dropdown-content(href='#') Literature
+                    a.dropdown-content(href='#') Psychology
+                    a.dropdown-content(href='#') Journalism
+    div.p4
+        div.dropdown
+            div.dropbtn Recreation Skills
+                div.dropdown-content
+                    a.dropdown-content(href='#') Violin
+                    a.dropdown-content(href='#') Rowing
+                    a.dropdown-content(href='#') Gaming
+                    a.dropdown-content(href='#') Yoga
+                    a.dropdown-content(href='#') Basketball
+                    a.dropdown-content(href='#') Piano
+
+    div.p3 If you are a University Student Teacher (UST), please select from the following options:
+    div.p3
+        a.btn(href='/login') Login
+        a.btn(href='/account') Create An Account

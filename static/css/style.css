@@ -1,3 +1,58 @@
+header {
+    text-align: center;
+    padding: 10px;
+    font-family: Helvetica;
+    font-size: xxx-large;
+}
+
+p {
+    position: absolute;
+    margin-top: 150;
+    margin-left: 400;
+    border-style: solid;
+    border-color: #c27536;
+    background-color: #c27536;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+.p1 {
+    font-style: oblique;
+    font-family: Garamond;
+    position: absolute;
+    margin-top: 100;
+    margin-left: 50;
+    font-size: xx-large;
+}
+
+.p2 {
+    font-style: oblique;
+    font-family: Helvetica;
+    position: absolute;
+    margin-top: 200;
+    margin-left: 50;
+    font-size: x-large;
+}
+
+.p3 {
+    font-style: oblique;
+    font-family: Helvetica;
+    position: absolute;
+    margin-top: 400;
+    margin-left: 50;
+    font-size: x-large;
+}
+
+.p4 {
+    font-style: oblique;
+    font-family: Helvetica;
+    position: absolute;
+    margin-top: 200;
+    margin-left: 680;
+    font-size: x-large;
+}
+
 .pic {
     margin-left: 100;
     margin-top: 130;
@@ -29,6 +84,7 @@
     padding: 350px;
 }
 
+
 h1 {
     white-space: nowrap;
     position: absolute;
@@ -39,9 +95,9 @@ h1 {
     font-family: Helvetica;
 }
 
-p {
+h2 {
+    margin-top: 225;
     position: absolute;
-    margin-top: 150;
     margin-left: 400;
     border-style: solid;
     border-color: #c27536;
@@ -50,6 +106,47 @@ p {
     border-radius: 10px;
     font-family: Helvetica;
 }
+
+h3 {
+    margin-top: 310;
+    position: absolute;
+    margin-left: 400;
+    border-style: solid;
+    border-color: #c27536;
+    background-color: #c27536;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+h4 {
+    margin-top: 70;
+    margin-left: 200;
+    border-color: #c27536;
+    background-color: #c27536;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+h5 {
+    margin-top: 100;
+    position: absolute;
+    margin-left: 400;
+    border-style: solid;
+    border-color: #c27536;
+    background-color: #c27536;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
 
 img {
     margin-left: 100;
@@ -75,18 +172,6 @@ img {
     font-family: Helvetica;
 }
 
-h2 {
-    margin-top: 225;
-    position: absolute;
-    margin-left: 400;
-    border-style: solid;
-    border-color: #c27536;
-    background-color: #c27536;
-    border-width: 10px;
-    border-radius: 10px;
-    font-family: Helvetica;
-}
-
 select {
     text-align: center;
     border-style: none;
@@ -94,20 +179,89 @@ select {
     font-family: Helvetica;
 }
 
-h3 {
-    margin-top: 310;
-    position: absolute;
-    margin-left: 400;
-    border-style: solid;
-    border-color: #c27536;
-    background-color: #c27536;
-    border-width: 10px;
-    border-radius: 10px;
-    font-family: Helvetica;
-}
 
 body {
     background-image: url("https://media.istockphoto.com/photos/business-and-education-background-picture-id671101136?k=20&m=671101136&s=170667a&w=0&h=IRW440E5O4UWMO0wRHdkTaNgdO6DzD_VnEqzJ-XAl0M=");
     background-repeat: no-repeat;
     background-size: 1700px 900px;
+}
+
+.btn {
+    margin-top: 60;
+    margin-left: 150;
+    border-color: #c27536;
+    background-color: #c27536;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+  }
+  
+.btn:hover{
+    border-left: 3px solid blue;
+}
+
+
+/* Style The Dropdown Button */
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #c27536;
+    display: inline-block;
+    width: 150px;
+    border-color: #c27536;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+  
+  /* The container <div> - needed to position the dropdown content */
+.dropdown {
+margin-top: 60;
+margin-left: 50;
+display: inline-block;
+position: fixed;
+z-index: 1000;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+display: none;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+font-size: x-small;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    border-left: 3px solid blue;
 }

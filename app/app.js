@@ -60,9 +60,24 @@ app.get("/all-teachers", function(req, res) {
     });
 });
 
+// Route for 'homepage.pug'
+app.get('/homepage', function (req, res) {
+    res.render('homepage');
+});
+
+// Route for 'maths.pug'
+app.get('/maths', function (req, res) {
+    res.render('maths');
+});
+
 // Route for 'register.pug'
 app.get('/register', function (req, res) {
     res.render('register');
+});
+
+// Route for 'account.pug'
+app.get('/account', function (req, res) {
+    res.render('account');
 });
 
 // Set password route
@@ -131,6 +146,7 @@ app.get("/single-teacher/:id", async function(req, res) {
     //Create a teacher class with ID passed
     var teacher = new Teacher(tId);
     await teacher.getTeacherName();
+    await teacher.getTeacherImage();
     await teacher.getTeacherSkills();
     await teacher.getTeacherBookings();
     resultSkills = await getskills.getAllSkills();

@@ -9,6 +9,7 @@ class Teacher {
     Image;
     skills = [];
     booking = [];
+    maths;
 
     constructor(T_ID) {
         this.T_ID = T_ID;
@@ -20,6 +21,15 @@ class Teacher {
             var sql = "SELECT * from Teacher where T_ID = ?"
             const results = await db.query(sql, [this.T_ID]);
             this.Name = results[0].Name;
+        }
+    }
+
+    //Get the teacher name from the database
+    async getTeacherImage() {
+        if (typeof this.image_path !== 'string') {
+            var sql = "SELECT image_path from image where T_ID = ?"
+            const results = await db.query(sql, [this.T_ID]);
+            this.image_path = results[0].image_path;
         }
     }
 
@@ -49,6 +59,7 @@ class Teacher {
         }
 
     }
+
 
 }
 

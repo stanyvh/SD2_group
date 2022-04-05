@@ -6,7 +6,7 @@ block content
     body 
     h1 Teacher Profile Page for: #{teacher.Name}
 
-    p The ID for the teacher is: #{teacher.T_ID}
+    p Teacher ID: #{teacher.T_ID}
 
     img(src= teacher.image_path width='200px' height='360px')
 
@@ -31,3 +31,12 @@ block content
                     tr 
                 for booking in teacher.booking
                     option(value= 'BookingDetails') #{booking.DayOfWeek} | #{booking.Slot} | #{booking.Duration}
+
+    h4 Message For Enquiry
+        form(action='/add-note', method='POST')
+            input(type='hidden' name='T_ID' value=teacher.T_ID)
+            textarea(name='note' rows=7 cols=50)
+            div 
+            input(type='Submit' value='Submit')
+
+    h5 Enquiry Message Inbox: #{teacher.note}

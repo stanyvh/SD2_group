@@ -8,6 +8,8 @@ class Teacher {
     Name;
     Image;
     skills = [];
+    academicSkills = [];
+    recSkills = [];
     booking = [];
     maths;
 
@@ -46,6 +48,19 @@ class Teacher {
             this.skills.push(new Skills(row.SkillName, row.SkillType));
         }
     }
+
+     //Get the academic skills for this teacher
+     async getTeacherAcademicSkills() {
+        var sql = "SELECT skillName \
+        FROM Skills \
+        WHERE SkillType = Academic"
+        const results = await db.query(sql);
+        for(var row of results) {
+            this.academicSkills.push(new academicSkills(row.SkillName));
+        console.log(results);
+        }
+    }
+
 
     async getTeacherBookings() {
         var sql = "SELECT Booking.Book_ID, Booking.DayOfWeek, Booking.Slot, Booking.Duration \

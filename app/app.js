@@ -148,6 +148,7 @@ app.get("/single-teacher/:id", async function(req, res) {
     await teacher.getTeacherName();
     await teacher.getTeacherImage();
     await teacher.getTeacherSkills();
+    await teacher.getTeacherAcademicSkills();
     await teacher.getTeacherBookings();
     resultSkills = await getskills.getAllSkills();
     res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});

@@ -204,3 +204,11 @@ npm install node-gyp -g
 npm install bcryptjs -g
 
 npm install bcryptjs --save
+
+/*Notes For Teachers*/
+ALTER TABLE Teacher
+ADD column note text
+AFTER name
+
+/* Testing Teacher enquiry notes in db */
+UPDATE Teacher SET note = 'Need help with math theorems' WHERE T_ID = 10

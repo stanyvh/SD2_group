@@ -12,17 +12,20 @@ class Teacher {
     recSkills = [];
     booking = [];
     maths;
+    // Enquiry Messages
+    note;
 
     constructor(T_ID) {
         this.T_ID = T_ID;
     }
 
     //Get the teacher name from the database
-    async getTeacherName() {
+    async getTeacherDetails() {
         if (typeof this.Name !== 'string') {
             var sql = "SELECT * from Teacher where T_ID = ?"
             const results = await db.query(sql, [this.T_ID]);
             this.Name = results[0].Name;
+            this.note = results[0].note;
         }
     }
 
@@ -73,6 +76,14 @@ class Teacher {
             this.booking.push(new Booking(row.DayOfWeek, row.Slot, row.Duration));
         }
 
+    }
+
+    async addTeacherNote(note) {
+        var sql = "UPDATE Teacher SET note = ? WHERE teacher.T_ID = ?"
+        const result = await db.query(sql, [note, this.T_ID]);
+        // Ensure the note property in the model is up to date
+        this.note = note;
+        return result;
     }
 
 

@@ -70,7 +70,7 @@ app.get("/index", function(req, res) {
 
 // Create a route for testing the db
 app.get("/all-teachers", function(req, res) {
-    // Prepare an SQL query that will return all rows from the test_table
+    // Prepare an SQL query that will return all rows from the teacher_table
     var sql = 'select * from Teacher';
     db.query(sql).then(results => {
         res.render('all-teachers', {data:results});
@@ -82,9 +82,28 @@ app.get('/homepage', function (req, res) {
     res.render('homepage');
 });
 
-// Route for 'maths.pug'
+// Route for Maths Teachers
 app.get('/maths', function (req, res) {
-    res.render('maths');
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 123;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Education Teachers
+app.get('/education', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 114;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Writing Teachers
+app.get('/writing', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 107;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
 });
 
 // Route for 'register.pug'
@@ -165,7 +184,6 @@ app.get("/single-teacher/:id", async function(req, res) {
     await teacher.getTeacherDetails();
     await teacher.getTeacherImage();
     await teacher.getTeacherSkills();
-    await teacher.getTeacherAcademicSkills();
     await teacher.getTeacherBookings();
     resultSkills = await getskills.getAllSkills();
     res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});

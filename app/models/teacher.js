@@ -1,6 +1,8 @@
 const db = require('../services/db');
 const { Skills } = require('./skills');
 const { Booking } = require('./booking');
+const { Subject } = require('./subject');
+
 
 class Teacher {
     // Attributes
@@ -8,8 +10,10 @@ class Teacher {
     Name;
     Image;
     skills = [];
+    academicSkills = [];
+    recSkills = [];
     booking = [];
-    maths;
+    maths = [];
     // Enquiry Messages
     note;
 
@@ -36,7 +40,6 @@ class Teacher {
         }
     }
 
-
     //Get the skills for this teacher
     async getTeacherSkills() {
         var sql = "SELECT Skills.SkillName, Skills.SkillType \
@@ -56,7 +59,6 @@ class Teacher {
         JOIN Booking ON Booking.T_ID = Teacher.T_ID \
         WHERE Teacher.T_ID = ?;"
         const results = await db.query(sql, [this.T_ID]);
-        console.log(results);
         for (var row of results) {
             this.booking.push(new Booking(row.DayOfWeek, row.Slot, row.Duration));
         }

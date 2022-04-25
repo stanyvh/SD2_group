@@ -3,8 +3,8 @@ block content
     head 
     title= "Profile Page"
 
-    body 
-    h1 Teacher Profile Page for: #{teacher.Name}
+    body
+    h1 #{teacher.Name}
 
     p Teacher ID: #{teacher.T_ID}
 
@@ -31,12 +31,30 @@ block content
                     tr 
                 for booking in teacher.booking
                     option(value= 'BookingDetails') #{booking.DayOfWeek} | #{booking.Slot} | #{booking.Duration}
+    h5 Select a Date
+        // - jQuery plus the datepicker function are probably better placed in the layout template but they will work here
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')
+        link(rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css")
+        script.
+            $(function(){
+                $("#datepicker").datepicker({
+                    dateFormat: "yy-mm-dd"
+                });
+            });
+        // - Date picker form including submit
+        form(action='/set-date', method='POST')
+            input(type='text' id='datepicker' name='date')
+            input(type='submit' value='Submit')
+        ul
+        
 
-    h4 Message For Enquiry
+    h4 Message for Enquiry
         form(action='/add-note', method='POST')
             input(type='hidden' name='T_ID' value=teacher.T_ID)
             textarea(name='Note' rows=7 cols=50)
             div 
             input(type='Submit' value='Submit')
 
-    h5 Enquiry Message Inbox: #{teacher.note}
+    h6 Enquiry Message Inbox: #{teacher.note}
+        

@@ -9,6 +9,9 @@ app.use(express.static("static"));
 app.set('view engine', 'pug');
 app.set('views', './app/views');
 
+// Add the luxon date formatting library
+const { DateTime } = require("luxon");
+
 //***********************************************************************************
 
 // We require the db.js file to set up the database connection.
@@ -54,13 +57,12 @@ app.post('/add-note', function (req, res) {
 
 // Create a route for root - /
 app.get("/", function(req, res) {
-    console.log(req.session);
-    if (req.session.uid) {
-		res.send('Welcome back, ' + req.session.uid + '!');
-	} else {
-		res.send('Please login to view this page!');
-	}
-	res.end();
+    res.render('homepage');
+});
+
+// Route for 'homepage.pug'
+app.get('/homepage', function (req, res) {
+    res.render('homepage');
 });
 
 // Create a route for 'index'
@@ -72,21 +74,37 @@ app.get("/index", function(req, res) {
 
 // Create a route for testing the db
 app.get("/all-teachers", function(req, res) {
-    // Prepare an SQL query that will return all rows from the test_table
+    // Prepare an SQL query that will return all rows from the teacher_table
     var sql = 'select * from Teacher';
     db.query(sql).then(results => {
         res.render('all-teachers', {data:results});
     });
 });
 
-// Route for 'homepage.pug'
-app.get('/homepage', function (req, res) {
-    res.render('homepage');
+
+
+// Route for Maths Teachers
+app.get('/maths', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 123;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
 });
 
-// Route for 'maths.pug'
-app.get('/maths', function (req, res) {
-    res.render('maths');
+// Route for Education Teachers
+app.get('/education', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 114;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Writing Teachers
+app.get('/writing', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 107;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
 });
 
 // Route for 'register.pug'
@@ -172,7 +190,46 @@ app.get("/single-teacher/:id", async function(req, res) {
     res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});
 });
 
+// Create route for the calendar
+// Here we have a page which demonstrates how to both input dates and display dates
+app.get("/teacher", async function(req, res) {
+    // Get all the dates from the db to display
+    // NB Move this to a model that is appropriate to your project
+    sql = "SELECT * from test_booking";
+    // We could format dates either in the template or in the backend
+    dates = [];
+    results = await db.query(sql);
+    // Loop through the results from the database
+    for (var row of results) {
+        // For some reason the dates are fomatted as jsDates. I think thats the Mysql2 library at work!
+        dt = DateTime.fromJSDate(row['date']);
+        // Format the date and push it to the row ready for the template
+        // NB Formatting could also be done in the template
+        // NB date formats are usually set up to work throughout your app, you would not usually set this in every row.
+        // you could put this in your model.
+        dates.push(dt.toLocaleString(DateTime.DATE_HUGE));
+    }
+    // Render the calendar template, injecting the dates array as a variable.
+    res.render('teacher', {dates: dates});
+});
 
+// Capture the date input and save to the db
+app.post('/set-date', async function (req, res) {
+    params = req.body.date;
+    console.log(params);
+    //construct a date object from the submitted value - use a library
+    var inputDate = DateTime.fromFormat(params, 'yyyy-M-dd');
+    console.log(inputDate);
+    // Add the date: NB this should be in a model somewhere
+    sql = "INSERT into test_booking (date) VALUES (?)";
+    try {
+        await db.query(sql, [inputDate.toSQLDate()]);
+    } catch (err) {
+        console.error(`Error while adding date `, err.message);
+        res.send('sorry there was an error');
+    }
+    res.send('date added');
+});
 
 //*********************************************************************************
 

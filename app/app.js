@@ -26,6 +26,7 @@ const getskills = require("./models/getskills");
 
 // Set the sessions
 var session = require('express-session');
+const { Messages } = require("./models/message");
 app.use(session({
   secret: 'secretkeysdfjsflyoifasd',
   resave: false,
@@ -38,10 +39,11 @@ app.post('/add-note', function (req, res) {
     // Get the submitted values
     params = req.body;
     // Note that we need the id to get update the correct Teacher
-    var teacher = new Teacher(params.T_ID)
+    var message = new Messages(params.T_ID);
+    console.log(message);
     // Adding a try/catch block which will be useful later when we add to the database
     try {
-        teacher.addTeacherNote(params.note).then(result => {
+        message.addTeacherNote(params.Note).then(result => {
             // Just a little output for now
             res.send('Message Sent! Please wait for a response within 24 hours.');
         })

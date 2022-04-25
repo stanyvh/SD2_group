@@ -206,8 +206,19 @@ h5 {
 }
 
 h6 {
-    margin-top: 310;
     position: absolute;
+    margin-left: 400;
+    border-style: solid;
+    border-color: aliceblue;
+    background-color: aliceblue;
+    border-width: 10px;
+    border-radius: 10px;
+    font-family: Helvetica;
+}
+
+h7 {
+    position: absolute;
+    margin-top: 100;
     margin-left: 400;
     border-style: solid;
     border-color: #c27536;
@@ -215,8 +226,8 @@ h6 {
     border-width: 10px;
     border-radius: 10px;
     font-family: Helvetica;
+    font-weight: bold;
 }
-
 
 img {
     margin-left: 100;

@@ -311,9 +311,11 @@ z-index: 1000;
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
 display: none;
-background-color: #f9f9f9;
+text-align: center;
+background-color: #c27536;
 min-width: 160px;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+box-shadow: none;
+box-sizing: border-box;
 }
 
 /* Links inside the dropdown */

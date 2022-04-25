@@ -1,7 +1,7 @@
 const db = require('../services/db');
 const { Skills } = require('./skills');
 const { Booking } = require('./booking');
-const { Maths } = require('./subject');
+const { Subject } = require('./subject');
 
 
 class Teacher {

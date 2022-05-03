@@ -21,37 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 //Get the models
 const { Teacher } = require("./models/teacher");
 const { User } = require("./models/user");
+const { Subject } = require("./models/subject");
 
 // Get the programmes dropdown menu
 const getskills = require("./models/getskills");
 
 //***********************************************************************************
-
-// Set the sessions
-var session = require('express-session');
-app.use(session({
-  secret: 'secretkeysdfjsflyoifasd',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}));
-
-// Recieving S-Teacher notes
-app.post('/add-note', function (req, res) {
-    // Get the submitted values
-    params = req.body;
-    // Note that we need the id to get update the correct Teacher
-    var teacher = new Teacher(params.T_ID)
-    // Adding a try/catch block which will be useful later when we add to the database
-    try {
-        teacher.addTeacherNote(params.note).then(result => {
-            // Just a little output for now
-            res.send('Message Sent! Please wait for a response within 24 hours.');
-        })
-     } catch (err) {
-         console.error(`Error while adding note `, err.message);
-     }
-});
 
 // Create a route for root - /
 app.get("/", function(req, res) {
@@ -61,12 +36,6 @@ app.get("/", function(req, res) {
 // Route for 'homepage.pug'
 app.get('/homepage', function (req, res) {
     res.render('homepage');
-});
-
-// Create a route for 'index'
-app.get("/index", function(req, res) {
-    res.render("index",
-        {'title':'Profile Page', 'heading': 'heading'});
 });
 
 
@@ -79,7 +48,33 @@ app.get("/all-teachers", function(req, res) {
     });
 });
 
+app.get("/single-teacher/:id", async function(req, res) {
+    var tId = req.params.id;
+    //Create a teacher class with ID passed
+    var teacher = new Teacher(tId);
+    await teacher.getTeacherDetails();
+    await teacher.getTeacherImage();
+    await teacher.getTeacherSkills();
+    await teacher.getTeacherBookings();
+    resultSkills = await getskills.getAllSkills();
+    res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});
+});
 
+app.get("/all-subjects", function(req, res) {
+    // Prepare an SQL query that will return all rows from the teacher_table
+    var sql = 'select * from teaching';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Maths Teachers (attenpted to make dynamic, but failed)
+app.get('/single-subject/:id', async function (req, res) {
+    var sId = req.params.id;
+    var subject = new Subject(sId);
+    await subject.getSubjectName();
+    res.render('subject', {'subject':subject});
+});
 
 // Route for Maths Teachers
 app.get('/maths', function (req, res) {
@@ -100,6 +95,30 @@ app.get('/education', function (req, res) {
 // Route for Writing Teachers
 app.get('/writing', function (req, res) {
     var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 107;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Violin Teachers
+app.get('/violin', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 502;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Rowing Teachers
+app.get('/rowing', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 509;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Gaming Teachers
+app.get('/gaming', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 514;';
     db.query(sql).then(results => {
         res.render('subject', {data:results});
     });
@@ -175,18 +194,32 @@ app.get('/logout', function (req, res) {
     res.redirect('/login');
   });
 
+// Set the sessions
+var session = require('express-session');
+app.use(session({
+  secret: 'secretkeysdfjsflyoifasd',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 
-app.get("/single-teacher/:id", async function(req, res) {
-    var tId = req.params.id;
-    //Create a teacher class with ID passed
-    var teacher = new Teacher(tId);
-    await teacher.getTeacherDetails();
-    await teacher.getTeacherImage();
-    await teacher.getTeacherSkills();
-    await teacher.getTeacherBookings();
-    resultSkills = await getskills.getAllSkills();
-    res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});
+// Recieving S-Teacher notes
+app.post('/add-note', function (req, res) {
+    // Get the submitted values
+    params = req.body;
+    // Note that we need the id to get update the correct Teacher
+    var teacher = new Teacher(params.T_ID)
+    // Adding a try/catch block which will be useful later when we add to the database
+    try {
+        teacher.addTeacherNote(params.note).then(result => {
+            // Just a little output for now
+            res.send('Message Sent! Please wait for a response within 24 hours.');
+        })
+     } catch (err) {
+         console.error(`Error while adding note `, err.message);
+     }
 });
+
 
 // Create route for the calendar
 // Here we have a page which demonstrates how to both input dates and display dates
@@ -228,26 +261,6 @@ app.post('/set-date', async function (req, res) {
     }
     res.send('date added');
 });
-
-//*********************************************************************************
-
-// Create a route for /goodbye
-// Responds to a 'GET' request
-app.get("/goodbye", function(req, res) {
-    res.send("Goodbye world!");
-});
-
-// Create a dynamic route for /hello/<name>, where name is any value provided by user
-// At the end of the URL
-// Responds to a 'GET' request
-app.get("/hello/:name", function(req, res) {
-    // req.params contains any parameters in the request
-    // We can examine it in the console for debugging purposes
-    console.log(req.params);
-    //  Retrieve the 'name' parameter and use it in a dynamically generated page
-    res.send("Hello " + req.params.name);
-});
-
 
 //**********************************************************************************
 

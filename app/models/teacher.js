@@ -1,7 +1,6 @@
 const db = require('../services/db');
 const { Skills } = require('./skills');
 const { Booking } = require('./booking');
-const { Subject } = require('./subject');
 
 
 class Teacher {
@@ -31,7 +30,7 @@ class Teacher {
         }
     }
 
-    //Get the teacher name from the database
+    //Get the teacher profile picture from the database
     async getTeacherImage() {
         if (typeof this.image_path !== 'string') {
             var sql = "SELECT image_path from image where T_ID = ?"

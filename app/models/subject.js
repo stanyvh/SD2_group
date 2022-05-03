@@ -1,16 +1,25 @@
 const db = require('../services/db');
+const { Skills } = require('./skills');
+const { Teacher } = require('./teacher');
 
 class Subject {
-    teacherName;
+    Skill_ID;
+    subjects = [];
 
-    constructor(TeacherName) {
-        this.teacherName = TeacherName;
+    constructor(Skill_ID) {
+        this.Skill_ID = Skill_ID;
     }
 
-    async getSubject() {
-        var sql = "SELECT * FROM Teaching WHERE Skill_ID = ?";
-        const results = await db.query(sql, [this.id]);
-        this.teacherName = results[0].TeacherName;
+
+    async getSubjectName() {
+        var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher \
+        JOIN Teaching ON Teacher.T_ID = Teaching.T_ID \
+        JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID \
+        WHERE Skills.Skill_ID = ?;';
+        const results = await db.query(sql, [this.Skill_ID]);
+        for(var row of results) {
+            this.subjects.push(new Subject(row.Skills.Skill_ID, row.Teacher.Name));
+        }
     }
 }
 

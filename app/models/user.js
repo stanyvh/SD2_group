@@ -46,6 +46,8 @@ class User {
         return this.id;
     }
 
+
+
     // Test a submitted password against a stored password
     async authenticate(submitted) {
         // Get the stored, hashed password for the user
@@ -59,8 +61,6 @@ class User {
             return false;
         }
     }
-
-
 }
 
 module.exports  = {

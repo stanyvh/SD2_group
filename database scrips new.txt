@@ -205,17 +205,6 @@ npm install bcryptjs -g
 
 npm install bcryptjs --save
 
-/*Notes For Teachers*/
-ALTER TABLE Teacher
-ADD column note text
-AFTER name
-
-/* Testing Teacher enquiry notes in db */
-UPDATE Teacher SET note = 'Need help with math theorems' WHERE T_ID = 10
-
-/*Dropping Note from Teacher to create a separate messages table*/
-ALTER TABLE `Teacher` DROP `note`;
-
 /*Messages Table*/
 CREATE TABLE Messages(Note_ID int PRIMARY KEY,
     T_ID INT(10);
@@ -224,3 +213,5 @@ CREATE TABLE Messages(Note_ID int PRIMARY KEY,
 ALTER TABLE Messages
 ADD column Note text
 AFTER T_ID
+
+ALTER TABLE `Messages` CHANGE `Note_ID` `Note_ID` INT NOT NULL AUTO_INCREMENT;

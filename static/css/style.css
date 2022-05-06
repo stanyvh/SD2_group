@@ -112,6 +112,24 @@ p {
     margin-left: 0;
 }
 
+.p12 {
+    font-style: oblique;
+    font-family: Helvetica;
+    position: absolute;
+    font-size: x-large;
+    margin-top: 630;
+    margin-left: 300;
+}
+
+.p13 {
+    font-style: oblique;
+    font-family: Garamond;
+    position: absolute;
+    margin-top: 100;
+    margin-left: 270;
+    font-size: xx-large;
+}
+
 
 .pic {
     margin-left: 100;
@@ -246,8 +264,8 @@ img {
     background: url("https://i.postimg.cc/YqFggNPD/link-learn-logo-removebg-preview.png");
     width: 335;
     height: 230;
-    margin-top: -130;
-    margin-left: 500;
+    margin-top: -100;
+    margin-left: 450;
   }
 
 

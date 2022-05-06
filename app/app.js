@@ -28,33 +28,6 @@ const getskills = require("./models/getskills");
 
 //***********************************************************************************
 
-// Set the sessions
-var session = require('express-session');
-const { Messages } = require("./models/message");
-app.use(session({
-  secret: 'secretkeysdfjsflyoifasd',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}));
-
-// Recieving S-Teacher notes
-app.post('/add-note', function (req, res) {
-    // Get the submitted values
-    params = req.body;
-    // Note that we need the id to get update the correct Teacher
-    var message = new Messages(params.T_ID);
-    console.log(message);
-    // Adding a try/catch block which will be useful later when we add to the database
-    try {
-        message.addTeacherNote(params.Note).then(result => {
-            // Just a little output for now
-            res.send('Message Sent! Please wait for a response within 24 hours.');
-        })
-     } catch (err) {
-         console.error(`Error while adding note `, err.message);
-     }
-});
 
 // Create a route for root - /
 app.get("/", function(req, res) {
@@ -66,6 +39,10 @@ app.get('/homepage', function (req, res) {
     res.render('homepage');
 });
 
+// Route for 'video.pug'
+app.get('/video', function (req, res) {
+    res.render('video');
+});
 
 // Create a route for testing the db
 app.get("/all-teachers", function(req, res) {
@@ -96,7 +73,7 @@ app.get("/all-subjects", function(req, res) {
     });
 });
 
-// Route for Maths Teachers (attenpted to make dynamic, but failed)
+// Route filtering teachers by subject (attenpted to make dynamic, but failed)
 app.get('/single-subject/:id', async function (req, res) {
     var sId = req.params.id;
     var subject = new Subject(sId);
@@ -123,6 +100,54 @@ app.get('/education', function (req, res) {
 // Route for Writing Teachers
 app.get('/writing', function (req, res) {
     var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 107;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Drama Teachers
+app.get('/drama', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 112;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Photography Teachers
+app.get('/photography', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 120;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Criminology Teachers
+app.get('/criminology', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 108;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Human Resources Teachers
+app.get('/hr', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 116;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Politics Teachers
+app.get('/politics', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 121;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Literature Teachers
+app.get('/literature', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 115;';
     db.query(sql).then(results => {
         res.render('subject', {data:results});
     });
@@ -262,6 +287,34 @@ app.post('/set-date', async function (req, res) {
         res.send('sorry there was an error');
     }
     res.send('date added');
+});
+
+// Sending a Message
+var session = require('express-session');
+const { Messages } = require("./models/message");
+app.use(session({
+  secret: 'secretkeysdfjsflyoifasd',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
+
+// Recieving S-Teacher notes
+app.post('/add-note', function (req, res) {
+    // Get the submitted values
+    params = req.body;
+    // Note that we need the id to get update the correct Teacher
+    var message = new Messages(params.T_ID);
+    console.log(message);
+    // Adding a try/catch block which will be useful later when we add to the database
+    try {
+        message.addTeacherNote(params.Note).then(result => {
+            // Just a little output for now
+            res.send('Message Sent! Please wait for a response within 24 hours.');
+        })
+     } catch (err) {
+         console.error(`Error while adding note `, err.message);
+     }
 });
 
 //**********************************************************************************

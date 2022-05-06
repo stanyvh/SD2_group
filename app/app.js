@@ -153,6 +153,22 @@ app.get('/literature', function (req, res) {
     });
 });
 
+// Route for Psychology Teachers
+app.get('/psychology', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 122;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Journalism Teachers
+app.get('/journalism', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 115;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+}); 
+
 // Route for Violin Teachers
 app.get('/violin', function (req, res) {
     var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 502;';
@@ -172,6 +188,30 @@ app.get('/rowing', function (req, res) {
 // Route for Gaming Teachers
 app.get('/gaming', function (req, res) {
     var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 514;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Yoga Teachers
+app.get('/yoga', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 503;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for basketball Teachers
+app.get('/basketball', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 513;';
+    db.query(sql).then(results => {
+        res.render('subject', {data:results});
+    });
+});
+
+// Route for Piano Teachers
+app.get('/piano', function (req, res) {
+    var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 501;';
     db.query(sql).then(results => {
         res.render('subject', {data:results});
     });

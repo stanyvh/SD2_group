@@ -53,6 +53,7 @@ app.get("/all-teachers", function(req, res) {
     });
 });
 
+// Single Teacher Page
 app.get("/single-teacher/:id", async function(req, res) {
     var tId = req.params.id;
     //Create a teacher class with ID passed
@@ -62,9 +63,10 @@ app.get("/single-teacher/:id", async function(req, res) {
     await teacher.getTeacherSkills();
     await teacher.getTeacherBookings();
     resultSkills = await getskills.getAllSkills();
-    res.render('teacher', {'teacher':teacher, 'Skills':resultSkills});
+    res.render('teacher', {'teacher': teacher, 'Skills':resultSkills});
 });
 
+// All Subjects Page
 app.get("/all-subjects", function(req, res) {
     // Prepare an SQL query that will return all rows from the teacher_table
     var sql = 'select * from teaching';
@@ -81,6 +83,7 @@ app.get('/single-subject/:id', async function (req, res) {
     res.render('subject', {'subject':subject});
 });
 
+// Only option was to create individually filtered pages by subject:
 // Route for Maths Teachers
 app.get('/maths', function (req, res) {
     var sql = 'SELECT Teacher.T_ID, Teacher.Name FROM Teacher JOIN Teaching ON Teacher.T_ID = Teaching.T_ID JOIN Skills ON Skills.Skill_ID = Teaching.Skill_ID WHERE Skills.Skill_ID = 123;';

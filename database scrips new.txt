@@ -205,8 +205,13 @@ npm install bcryptjs -g
 
 npm install bcryptjs --save
 
+
+/*Booking Table*/
+create table test_booking(date_id int PRIMARY KEY AUTO_INCREMENT, 
+                          date datetime);
+
 /*Messages Table*/
-CREATE TABLE Messages(Note_ID int PRIMARY KEY,
+CREATE TABLE Messages(Note_ID int PRIMARY KEY AUTO_INCREMENT,
     T_ID INT(10);
 
 /*Messages For Teachers - Adding unlimited Notes*/

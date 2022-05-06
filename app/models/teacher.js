@@ -14,7 +14,7 @@ class Teacher {
     booking = [];
     maths = [];
     // Enquiry Messages
-    note;
+    Note;
 
     constructor(T_ID) {
         this.T_ID = T_ID;
@@ -26,7 +26,7 @@ class Teacher {
             var sql = "SELECT * from Teacher where T_ID = ?"
             const results = await db.query(sql, [this.T_ID]);
             this.Name = results[0].Name;
-            this.note = results[0].note;
+            this.Note = results[0].Note;
         }
     }
 
@@ -64,11 +64,11 @@ class Teacher {
 
     }
 
-    async addTeacherNote(note) {
-        var sql = "UPDATE Teacher SET note = ? WHERE teacher.T_ID = ?"
-        const result = await db.query(sql, [note, this.T_ID]);
+    async addTeacherNote(Note) {
+        var sql = "UPDATE Teacher SET Note = ? WHERE teacher.T_ID = ?"
+        const result = await db.query(sql, [Note, this.T_ID]);
         // Ensure the note property in the model is up to date
-        this.note = note;
+        this.Note = Note;
         return result;
     }
 
